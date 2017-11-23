@@ -47,6 +47,7 @@ public class XGeneratorTest {
                     @Override
                     protected void configureTable(XTable table) {
                         table.setTableName("city");
+                        table.setDomainObjectNameSuffix("Model");
                     }
 
                     @Override

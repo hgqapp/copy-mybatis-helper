@@ -55,8 +55,6 @@ public class XTable extends XProperty {
     private String domainObjectNameSuffix;
 
     public XTable() {
-        setDomainObjectNameSuffix("Model");
-
         enableInsert = true;
         enableDeleteByPrimaryKey = true;
         enableSelectByExample = true;
