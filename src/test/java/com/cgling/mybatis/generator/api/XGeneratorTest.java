@@ -17,10 +17,10 @@ public class XGeneratorTest {
         new XGenerator(){
             @Override
             protected void configureJdbcConnection(XJdbcConnection jdbcConnection) {
-                jdbcConnection.setConnectionURL("jdbc:mysql://114.215.68.26:3306/tms_dev");
+                jdbcConnection.setConnectionURL("jdbc:mysql://localhost:3306/world");
                 jdbcConnection.setDriverClass("com.mysql.jdbc.Driver");
                 jdbcConnection.setUserId("root");
-                jdbcConnection.setPassword("haoren123A!");
+                jdbcConnection.setPassword("root");
             }
 
             @Override
@@ -31,13 +31,13 @@ public class XGeneratorTest {
 
             @Override
             protected void configureJavaModelGenerator(XJavaModelGenerator javaModelGenerator) {
-                javaModelGenerator.setTargetPackage("model");
+                javaModelGenerator.setTargetPackage("com.cgling.model");
                 javaModelGenerator.setTargetProject("src/test/java");
             }
 
             @Override
             protected void configureJavaClientGenerator(XJavaClientGenerator javaClientGenerator) {
-                javaClientGenerator.setTargetPackage("mapper");
+                javaClientGenerator.setTargetPackage("com.cgling.mapper");
                 javaClientGenerator.setTargetProject("src/test/java");
             }
 
