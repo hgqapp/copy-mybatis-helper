@@ -15,7 +15,7 @@
 
 使用说明：    
 首先加入生成工具依赖包以及数据库驱动包
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>org.mybatis.generator</groupId>
@@ -32,7 +32,7 @@
 
 生成工具模板化代码示例：
 
-```
+```java
 public class XGeneratorTest {
 
     @Test
