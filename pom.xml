@@ -6,7 +6,7 @@
 
     <groupId>com.cgling</groupId>
     <artifactId>mybatis-helper</artifactId>
-    <version>1.0.0-RELEASE</version>
+    <version>1.0.0.RELEASE</version>
     <packaging>jar</packaging>
 
     <name>mybatis-helper</name>
