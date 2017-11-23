@@ -15,7 +15,7 @@
 
 使用说明：    
 首先加入生成工具依赖包以及数据库驱动包
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>org.mybatis.generator</groupId>
@@ -32,7 +32,7 @@
 
 生成工具模板化代码示例：
 
-```
+```java
 public class XGeneratorTest {
 
     @Test
@@ -85,3 +85,11 @@ public class XGeneratorTest {
 
 }
 ```  
+一点说明：
+* 每一个configure方法都对应原来XML文件的一项配置
+* configure方法入参如果是一个<code>List&lt;T&gt;</code>,这个T内部都会有一个Bulder构造工具，可以容易的构造出这个对象
+* configure方法如果有返回值，表示这个配置项是可选的，当返回<code>null</code>表示不需要这个配置项，如需要就返回当前的入参即可
+
+______________________________________________________________________      
+
+### 2. XML Mapper文件热加载工具
