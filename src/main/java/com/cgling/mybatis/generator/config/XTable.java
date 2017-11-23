@@ -56,7 +56,7 @@ public class XTable extends XProperty {
 
     public XTable() {
         enableInsert = true;
-        enableDeleteByPrimaryKey = true;
+        enableSelectByPrimaryKey = true;
         enableSelectByExample = true;
         enableUpdateByPrimaryKey = true;
         enableUpdateByExample = true;

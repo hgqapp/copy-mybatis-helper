@@ -17,7 +17,7 @@ public class XGeneratorTest {
         new XGenerator(){
             @Override
             protected void configureJdbcConnection(XJdbcConnection jdbcConnection) {
-                jdbcConnection.setConnectionURL("jdbc:mysql://localhost:3306/world");
+                jdbcConnection.setConnectionURL("jdbc:mysql://localhost:3306/user_center");
                 jdbcConnection.setDriverClass("com.mysql.jdbc.Driver");
                 jdbcConnection.setUserId("root");
                 jdbcConnection.setPassword("root");
@@ -25,7 +25,7 @@ public class XGeneratorTest {
 
             @Override
             protected void configureSqlMapGenerator(XSqlMapGenerator sqlMapGenerator) {
-                sqlMapGenerator.setTargetPackage("mapper");
+                sqlMapGenerator.setTargetPackage("mapper.user");
                 sqlMapGenerator.setTargetProject("src/test/resources");
             }
 
@@ -46,13 +46,13 @@ public class XGeneratorTest {
                 tables.add(new XTable.Builder(){
                     @Override
                     protected void configureTable(XTable table) {
-                        table.setTableName("city");
+                        table.setTableName("user_info");
                         table.setDomainObjectNameSuffix("Model");
                     }
 
                     @Override
                     protected XGeneratedKey configureGeneratedKey(XGeneratedKey generatedKey) {
-                        generatedKey.setColumn("id");
+                        generatedKey.setColumn("user_id");
                         generatedKey.setIdentity(true);
                         return generatedKey;
                     }
