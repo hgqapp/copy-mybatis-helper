@@ -42,8 +42,8 @@ public abstract class XGenerator {
         }.build());
     }
     protected XJavaTypeResolver configureJavaTypeResolver(XJavaTypeResolver javaTypeResolver){
-        javaTypeResolver.setType(JAVA_TYPE_RESOLVER_TYPE);
-        return javaTypeResolver;
+        // javaTypeResolver.setType(JAVA_TYPE_RESOLVER_TYPE);
+        return null;
     }
 
     protected XCommentGenerator configureCommentGenerator(XCommentGenerator commentGenerator){
