@@ -263,11 +263,15 @@ public abstract class XGenerator {
     }
 
     public void run(){
+        run(false);
+    }
+
+    public void run(boolean overwrite){
         try {
             ObjectFactory.addResourceClassLoader(XGenerator.class.getClassLoader());
             List<String> warnings = new ArrayList<>();
             Configuration configuration = build();
-            DefaultShellCallback callback = new DefaultShellCallback(false);
+            DefaultShellCallback callback = new DefaultShellCallback(overwrite);
             MyBatisGenerator myBatisGenerator = new MyBatisGenerator(configuration, callback, warnings);
             myBatisGenerator.generate(null);
             for (String warning : warnings) {
