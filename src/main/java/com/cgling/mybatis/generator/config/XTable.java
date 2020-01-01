@@ -1,5 +1,7 @@
 package com.cgling.mybatis.generator.config;
 
+import org.mybatis.generator.config.ModelType;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class XTable extends XProperty {
     private boolean enableUpdateByExample;
     private String selectByPrimaryKeyQueryId;
     private String selectByExampleQueryId;
-    private String modelType;
+    private ModelType modelType;
     private boolean escapeWildcards;
     private boolean delimitIdentifiers;
     private boolean delimitAllColumns;
@@ -233,11 +235,11 @@ public class XTable extends XProperty {
         this.selectByExampleQueryId = selectByExampleQueryId;
     }
 
-    public String getModelType() {
+    public ModelType getModelType() {
         return modelType;
     }
 
-    public void setModelType(String modelType) {
+    public void setModelType(ModelType modelType) {
         this.modelType = modelType;
     }
 

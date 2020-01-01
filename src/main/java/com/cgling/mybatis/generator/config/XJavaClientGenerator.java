@@ -10,7 +10,6 @@ public class XJavaClientGenerator extends XProperty {
     private String targetPackage;
     private String targetProject;
     private String type = "XMLMAPPER";
-    private String implementationPackage;
 
     private Boolean enableSubPackages;
     private String exampleMethodVisibility;
@@ -40,14 +39,6 @@ public class XJavaClientGenerator extends XProperty {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getImplementationPackage() {
-        return implementationPackage;
-    }
-
-    public void setImplementationPackage(String implementationPackage) {
-        this.implementationPackage = implementationPackage;
     }
 
     public Boolean getEnableSubPackages() {

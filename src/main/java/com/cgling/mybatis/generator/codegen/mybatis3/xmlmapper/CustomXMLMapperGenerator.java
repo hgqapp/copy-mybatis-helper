@@ -47,8 +47,8 @@ public class CustomXMLMapperGenerator extends XMLMapperGenerator {
     @Override
     protected void addInsertElement(XmlElement parentElement) {
         if (introspectedTable.getRules().generateInsert()) {
-            AbstractXmlElementGenerator elementGenerator = new XInsertElementGenerator(false);
-            initializeAndExecuteGenerator(elementGenerator, parentElement);
+//            AbstractXmlElementGenerator elementGenerator = new XInsertElementGenerator(false);
+//            initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
     }
 

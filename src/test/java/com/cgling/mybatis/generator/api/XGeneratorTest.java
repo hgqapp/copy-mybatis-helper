@@ -17,10 +17,10 @@ public class XGeneratorTest {
         new XGenerator(){
             @Override
             protected void configureJdbcConnection(XJdbcConnection jdbcConnection) {
-                jdbcConnection.setConnectionURL("jdbc:mysql://localhost:3306/user_center");
+                jdbcConnection.setConnectionURL("jdbc:mysql://192.168.32.18:3306/user_product");
                 jdbcConnection.setDriverClass("com.mysql.jdbc.Driver");
-                jdbcConnection.setUserId("root");
-                jdbcConnection.setPassword("root");
+                jdbcConnection.setUserId("shsnc");
+                jdbcConnection.setPassword("shsnc!@#");
             }
 
             @Override

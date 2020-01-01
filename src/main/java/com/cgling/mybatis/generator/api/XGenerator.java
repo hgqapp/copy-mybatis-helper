@@ -4,7 +4,6 @@ import com.cgling.mybatis.generator.config.*;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.*;
 import org.mybatis.generator.internal.DefaultShellCallback;
-import org.mybatis.generator.internal.ObjectFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,24 +53,24 @@ public abstract class XGenerator {
 
     protected void configureContext(XContext context){
         context.setId(DEFAULT_CONTEXT_ID);
-        context.setDefaultModelType(DEFAULT_MODEL_TYPE);
-        context.setTargetRuntime(TARGET_RUNTIME);
-        context.setJavaFileEncoding(JAVA_FILE_ENCODING);
-        context.setJavaFormatter(JAVA_FORMATTER);
-        context.setXmlFormatter(XML_FORMATTER);
+//        context.setDefaultModelType(DEFAULT_MODEL_TYPE);
+//        context.setTargetRuntime(TARGET_RUNTIME);
+//        context.setJavaFileEncoding(JAVA_FILE_ENCODING);
+//        context.setJavaFormatter(JAVA_FORMATTER);
+//        context.setXmlFormatter(XML_FORMATTER);
     }
 
     public Configuration build(){
         Configuration configuration = new Configuration();
         parseClassPathEntry(configuration);
         Context context = parseContext(configuration);
-        parseCommentGenerator(context);
-        parseJavaTypeResolver(context);
+//        parseCommentGenerator(context);
+//        parseJavaTypeResolver(context);
         parseJdbcConnection(context);
         parseJavaModelGenerator(context);
         parseJavaClientGenerator(context);
         parseSqlMapGenerator(context);
-        parsePlugins(context);
+//        parsePlugins(context);
         parseTables(context);
         return configuration;
     }
@@ -99,11 +98,10 @@ public abstract class XGenerator {
             tableConfiguration.setUpdateByExampleStatementEnabled(v.getEnableUpdateByExample());
             tableConfiguration.setSelectByPrimaryKeyQueryId(v.getSelectByPrimaryKeyQueryId());
             tableConfiguration.setSelectByExampleQueryId(v.getSelectByExampleQueryId());
-            String modelType = v.getModelType();
-            if (modelType == null) {
-                modelType = context.getDefaultModelType().getModelType();
+            ModelType modelType = v.getModelType();
+            if (modelType != null) {
+                tableConfiguration.setConfiguredModelType(modelType.name());
             }
-            tableConfiguration.setConfiguredModelType(modelType);
             tableConfiguration.setWildcardEscapingEnabled(v.getEscapeWildcards());
             tableConfiguration.setDelimitIdentifiers(v.getDelimitIdentifiers());
             tableConfiguration.setAllColumnDelimitingEnabled(v.getDelimitAllColumns());
@@ -204,7 +202,6 @@ public abstract class XGenerator {
         javaClientGeneratorConfiguration.setTargetProject(javaClientGenerator.getTargetProject());
         javaClientGeneratorConfiguration.setTargetPackage(javaClientGenerator.getTargetPackage());
         javaClientGeneratorConfiguration.setConfigurationType(javaClientGenerator.getType());
-        javaClientGeneratorConfiguration.setImplementationPackage(javaClientGenerator.getImplementationPackage());
         parseProperty(context, javaClientGenerator);
         context.setJavaClientGeneratorConfiguration(javaClientGeneratorConfiguration);
         return javaClientGeneratorConfiguration;
@@ -268,7 +265,7 @@ public abstract class XGenerator {
 
     public void run(boolean overwrite){
         try {
-            ObjectFactory.addResourceClassLoader(XGenerator.class.getClassLoader());
+//            ObjectFactory.addExternalClassLoader(XGenerator.class.getClassLoader());
             List<String> warnings = new ArrayList<>();
             Configuration configuration = build();
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);

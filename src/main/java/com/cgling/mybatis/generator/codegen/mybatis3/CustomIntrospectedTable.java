@@ -25,10 +25,10 @@ public class CustomIntrospectedTable extends IntrospectedTableMyBatis3Impl {
 
     @Override
     protected void calculateJavaModelGenerators(List<String> warnings, ProgressCallback progressCallback) {
-        AbstractJavaGenerator javaGenerator = new SimpleModelGenerator();
+        AbstractJavaGenerator javaGenerator = new SimpleModelGenerator(getModelProject());
         initializeAbstractGenerator(javaGenerator, warnings,
                 progressCallback);
-        javaModelGenerators.add(javaGenerator);
+        javaGenerators.add(javaGenerator);
     }
 
     @Override
